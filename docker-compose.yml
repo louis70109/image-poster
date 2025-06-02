@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  # Backend service
+  backend:
+    build: ./backend
+    container_name: image-poster-backend
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+
+  # Frontend service
+  frontend:
+    build: ./frontend
+    container_name: image-poster-frontend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
