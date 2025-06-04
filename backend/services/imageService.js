@@ -1,12 +1,12 @@
 const { createCanvas, loadImage } = require('canvas');
 
 /**
- * Process the image to fit in a 960x1080 canvas
+ * Process the image to fit in a 1080x1920 canvas (9:16)
  */
 exports.processImage = async (imageUrl) => {
   try {
     // Create a canvas with the specified dimensions
-    const canvas = createCanvas(960, 1080);
+    const canvas = createCanvas(1080, 1920);
     const ctx = canvas.getContext('2d');
     
     // Set background to white
